@@ -15,7 +15,8 @@ html {
   background-color: burlywood;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
 

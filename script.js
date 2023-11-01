@@ -1,5 +1,6 @@
 let playerPoints = 0;
 let pcPoints = 0;
+let roundNumber = 1;
 
 function getComputerChoice() {
   const x = Math.floor(Math.random() * 3) + 1;
@@ -21,8 +22,9 @@ function playRound(playerSelection, computerSelection) {
       pcPoints++;
       return "You Lose! Paper is beaten by Rock";
     } else if (computerSelection == "scissors") {
+      playerPoints++;
       return "You Win! Rock beats Scissors";
-      playPoints++;
+      
     } else {
       return "Draw!";
     }
@@ -53,25 +55,47 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  playerPoints = 0;
-  pcPoints = 0;
-  let roundNumber = 1;
+const btnRock = document.querySelector(".btnRock");
+const btnPaper = document.querySelector(".btnPaper");
+const btnScissors = document.querySelector(".btnScissors");
+const scoreDisplay = document.querySelector(".results");
 
-  for (let i = 0; i < 5; i++) {
-    let playerChoice = prompt("Round: " + roundNumber + " Rock, Paper, Scissors?");
-    let pcChoice = getComputerChoice();
-    console.log("Round: " + roundNumber);
-    console.log("Player: " + playerChoice + " vs " + "PC: " + pcChoice);
-    console.log(playRound(playerChoice, pcChoice));
-    console.log("");
+addChoiceToButton(btnRock, "rock");
+addChoiceToButton(btnPaper, "paper");
+addChoiceToButton(btnScissors, "scissors");
 
-    roundNumber++;
-  }
+function game(choice) {
+  let pcChoice = getComputerChoice();
+  
 
-  console.log("Player: " + playerPoints + " PC: " + pcPoints);
+  scoreDisplay.innerHTML = "Round: " + roundNumber + "<br>" //line break
+   + "Player: " + choice + " vs " + "PC: " + pcChoice + "<br>" 
+   + playRound(choice, pcChoice) + "<br>"
+   + "<br>"
+   + "Player: " + playerPoints + " PC: " + pcPoints;
+   roundNumber++;
+
+   //if player win reset game
+   if(playerPoints === 5) {
+    scoreDisplay.innerHTML += "<br>" + "You Won!";
+    resetGame();
+   }
+   //if pc wins reset game
+   if(pcPoints === 5) {
+    scoreDisplay.innerHTML += "<br>" + "You Lost!";
+    resetGame();
+   }
 }
 
-// const playerSelection = "rock";
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection, computerSelection));
+//Runs a game of rpc with respective choice on button press
+function addChoiceToButton(button, choice) {
+  button.addEventListener("click", () => {
+    game(choice);
+  });
+}
+
+function resetGame() {
+  roundNumber =1;
+  pcPoints = 0;
+  playerPoints = 0;
+}

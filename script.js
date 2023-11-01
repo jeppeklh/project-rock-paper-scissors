@@ -20,10 +20,10 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock") {
     if (computerSelection === "paper") {
       pcPoints++;
-      return "You Lose! Paper is beaten by Rock";
+      return "You Lose! 👊 is beaten by 🖐️";
     } else if (computerSelection == "scissors") {
       playerPoints++;
-      return "You Win! Rock beats Scissors";
+      return "You Win! 👊 beats ✌️";
       
     } else {
       return "Draw!";
@@ -33,10 +33,10 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection === "paper") {
     if (computerSelection === "scissors") {
       pcPoints++;
-      return "You Lose! Scissors is beaten by Paper";
+      return "You Lose! 🖐️ is beaten by ✌️";
     } else if (computerSelection == "rock") {
       playerPoints++;
-      return "You Win! Paper beats Rock";
+      return "You Win! 🖐️ beats 👊";
     } else {
       return "Draw!";
     }
@@ -45,10 +45,10 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection === "scissors") {
     if (computerSelection === "rock") {
       pcPoints++;
-      return "You Lose! Rock is beaten by Scissors";
+      return "You Lose! ✌️ is beaten by 👊";
     } else if (computerSelection == "paper") {
       playerPoints++;
-      return "You Win! Scissors beats Paper";
+      return "You Win! ✌️ beats 🖐️";
     } else {
       return "Draw!";
     }
@@ -60,16 +60,18 @@ const btnPaper = document.querySelector(".btnPaper");
 const btnScissors = document.querySelector(".btnScissors");
 const scoreDisplay = document.querySelector(".results");
 
+
 addChoiceToButton(btnRock, "rock");
 addChoiceToButton(btnPaper, "paper");
 addChoiceToButton(btnScissors, "scissors");
 
 function game(choice) {
+  let choiceEmoji = convertChoiceToEmoji(choice);
   let pcChoice = getComputerChoice();
+  let pcChoiceEmoji = convertChoiceToEmoji(pcChoice);
   
-
   scoreDisplay.innerHTML = "Round: " + roundNumber + "<br>" //line break
-   + "Player: " + choice + " vs " + "PC: " + pcChoice + "<br>" 
+   + "Player: " + choiceEmoji + " vs " + "PC: " + pcChoiceEmoji + "<br>" 
    + playRound(choice, pcChoice) + "<br>"
    + "<br>"
    + "Player: " + playerPoints + " PC: " + pcPoints;
@@ -82,7 +84,7 @@ function game(choice) {
    }
    //if pc wins reset game
    if(pcPoints === 5) {
-    scoreDisplay.innerHTML += "<br>" + "You Lost!";
+    scoreDisplay.innerHTML += "<br>" + "💀 You Lost! 💀";
     resetGame();
    }
 }
@@ -95,7 +97,19 @@ function addChoiceToButton(button, choice) {
 }
 
 function resetGame() {
-  roundNumber =1;
+  roundNumber = 1;
   pcPoints = 0;
   playerPoints = 0;
+}
+
+function convertChoiceToEmoji(choice) {
+  let emoji ="";
+  if(choice === "rock") {
+    emoji = "👊";
+  } else if (choice === "paper") {
+    emoji = "🖐️";
+  } else {
+    emoji = "✌️ ";
+  }
+  return emoji;
 }

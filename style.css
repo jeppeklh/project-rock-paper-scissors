@@ -33,6 +33,7 @@ body {
 .headerText {
   font-size: 28px;
   font-weight: bold;
+  font-family: "Press Start 2P";
 }
 
 .fa {
@@ -90,9 +91,6 @@ button:hover {
   align-items: center;
   gap: 10px;
 }
-
-
-
 
 .copyright {
   color:lightcoral;

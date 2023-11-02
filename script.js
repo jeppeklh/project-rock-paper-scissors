@@ -79,7 +79,7 @@ function game(choice) {
 
    //if player win reset game
    if(playerPoints === 5) {
-    scoreDisplay.innerHTML += "<br>" + "You Won!";
+    scoreDisplay.innerHTML += "<br>" + "🎉 You Won! 🎉";
     resetGame();
    }
    //if pc wins reset game

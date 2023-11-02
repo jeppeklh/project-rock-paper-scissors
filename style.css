@@ -1,5 +1,11 @@
 html {
-  background-color: lightblue;
+  background-color: rgb(60, 59, 59);
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .page {
@@ -67,17 +73,18 @@ button:hover {
 }
 
 .results {
-  background-color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  background-color: lightcoral;
   font-size: 28px;
   height: 300px;
 }
 
 .footer {
-  margin: 0;
   margin-top: auto;
   background-color: black;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

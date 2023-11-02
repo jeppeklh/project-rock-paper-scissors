@@ -12,36 +12,35 @@ html {
 
 .header {
   display: flex;
-  background-color: burlywood;
+  background-color: black;
+  color: #ddd;
   align-items: center;
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
-
 }
 
 .headerAuthor {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .headerText {
-    font-size: 28px;
-    font-weight: bold;
+  font-size: 28px;
+  font-weight: bold;
 }
 
-.header-button {
-  border-radius: 100%;
-  padding: 0;
-  border: 0;
+.fa {
+  color: #ddd;
+  transition: transform 0.3s ease-in-out;
 }
 
-.fb-button {
-  background-color: #3b5998;
+.fa:hover {
+  transform: rotate(360deg) scale(1.2);
 }
+
 
 .buttonContainer {
   margin: 50px;
-
   text-align: center;
 }
 
@@ -79,7 +78,14 @@ button:hover {
   margin-top: auto;
   background-color: black;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
+
+
+
 
 .copyright {
   color: white;

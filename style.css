@@ -19,7 +19,7 @@ body {
 .header {
   display: flex;
   background-color: black;
-  color: #ddd;
+  color: lightcoral;
   align-items: center;
   justify-content: space-between;
   padding-left: 10px;
@@ -36,7 +36,7 @@ body {
 }
 
 .fa {
-  color: #ddd;
+  color: lightcoral;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -95,6 +95,6 @@ button:hover {
 
 
 .copyright {
-  color: white;
+  color:lightcoral;
   text-align: center;
 }
